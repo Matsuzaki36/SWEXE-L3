@@ -1,0 +1,21 @@
+<% if @Tweet.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% @Tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<%= form_for @Tweet, url: {action: :update} do |f| %>
+    <p>
+        <%= f.label :message, '本文' %><br>
+        <%= f.text_area :message ,size: "60x15"%>
+    </p>
+    <p>
+        <%= f.label :image, 'ファイル' %><br>
+        <%= f.file_field :image %>
+</p>
+<br>
+<%= f.submit '編集' %>
+<% end %>
