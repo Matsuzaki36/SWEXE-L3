@@ -1,13 +1,11 @@
-<p>
-    <strong>本文</strong><br>
-    <%= @Tweet.message %>
-</p>
-<p>
-    <%= image_tag "/get_image/#{@Tweet.id}" %><br>
-</p>
-<p>
-    <%= (((Time.current - @Tweet.tdate).to_i) / 60) %>分前
-</p>
+
+<strong>本文</strong><br>
+<%= @Tweet.message %><br>
+<br>
+<%= image_tag "/get_image/#{@Tweet.id}" %><br>
+<br>
+
+<%= (((Time.current - @Tweet.tdate).to_i) / 60) %>分前<br>
 <hr color = "#000000">
 <%= link_to '削除', "/tweets/#{@Tweet.id}",method: :delete %>&nbsp;/
 <%= link_to '編集', "/tweets/#{@Tweet.id}/edit" %>&nbsp;/

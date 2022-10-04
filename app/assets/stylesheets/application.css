@@ -1,15 +1,83 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+#container{
+    display: flex;
+}
+
+#sidebar {
+    width: 350px;
+}
+
+#sidebar nav{
+    padding-left: 60px;
+}
+
+nav ul {
+list-style-type: none;
+}
+
+nav li a {
+text-decoration: none; 
+color: #000000
+}
+
+#sidebar li{
+    font-size: x-large;
+}
+
+#sidebar li {
+    margin: 20px 0;
+}
+
+#sidebar a:hover {
+    background-color: #C0C0C0;
+    padding: 10px 10px 10px 0;
+}
+
+#tweetbutton a{
+    color: white;
+    background-color: #0000FF;
+    padding: 10px 10px 10px 0;
+}
+
+#tweetbutton a:hover {
+    background-color: #000080;
+}
+
+#content {
+    width: 700px;
+    float: right;
+}
+
+#side{
+    position: fixed;
+    top: 50px;
+}
+
+#header{
+    position: fixed;
+    top: 0px;
+    width: 700px;
+    height: 80px;
+    background-color: white;
+}
+
+#headermenu li{
+    display: inline;
+    font-size: large;
+}
+
+#headermenu a{
+    padding: 10px 35px;
+}
+
+#headermenu a:hover {
+    border-bottom: 3px solid blue;
+}
+
+#content{
+    padding-left: 60px;
+    border-left:1px solid #8EB8FF; 
+}
+
+p{
+    border-bottom: 1px solid #8EB8FF;
+}

@@ -1,15 +1,18 @@
+<div id="header">
+        <%= render "header" %>
+</div>
+
 <% if flash[:notice] %>
 <%= flash[:notice] %><br><br>
 <% end %>
 
-<%= link_to '新規ツイート', '/tweets/new' %>
+<br><br>
+<p>　</p>
 <% @Tweets.each do |tweet| %>
         <p>
-                <hr>
                 <%= tweet.message %><br>
                 <%= image_tag "/get_image/#{tweet.id}" %><br>
                 <%= (((Time.current - tweet.tdate).to_i) / 60) %>分前　　<%= link_to '編集・削除', "/tweets/#{tweet.id}" %>
         </p>
 <% end %>
-<hr>
 

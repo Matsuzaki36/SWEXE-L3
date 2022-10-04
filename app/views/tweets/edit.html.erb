@@ -7,15 +7,4 @@
 </ul>
 <% end %>
 
-<%= form_for @Tweet, url: {action: :update} do |f| %>
-    <p>
-        <%= f.label :message, '本文' %><br>
-        <%= f.text_area :message ,size: "60x15"%>
-    </p>
-    <p>
-        <%= f.label :image, 'ファイル' %><br>
-        <%= f.file_field :image %>
-</p>
-<br>
-<%= f.submit '編集' %>
-<% end %>
+<%= render partial: "form", locals: { form: @Tweet }, url: {action: :update} %>

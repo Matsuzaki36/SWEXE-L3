@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
     def index
         @Tweets = Tweet.all.order(id: "DESC")
+        logger.debug @Tweets.count
     end
     def new
         @Tweet = Tweet.new
@@ -14,9 +15,9 @@ class TweetsController < ApplicationController
         end
         if @Tweet.save
             flash[:notice] = 'ツイートを投稿しました。'
-            redirect_to '/'
+            redirect_to root_path
         else
-            render 'new'
+            render new_tweet_path
         end
     end
     def show
@@ -26,7 +27,7 @@ class TweetsController < ApplicationController
         tweet = Tweet.find(params[:id])
         tweet.destroy
         flash[:notice] = 'ツイートを削除しました。'
-        redirect_to '/'
+        redirect_to root_path
     end
     def edit
         @Tweet = Tweet.find(params[:id])
@@ -36,16 +37,16 @@ class TweetsController < ApplicationController
         if params[:tweet][:image].nil?
             if @Tweet.update(message: params[:tweet][:message])
                 flash[:notice] = 'ツイートを編集しました。'
-                redirect_to '/'
+                redirect_to root_path
             else
-                render 'edit'
+                render edit_tweet_path
             end
         else
             if @Tweet.update(message: params[:tweet][:message], image: params[:tweet][:image].read)
                 flash[:notice] = 'ツイートを編集しました。'
-                redirect_to '/'
+                redirect_to root_path
             else
-                render 'edit'
+                render edit_tweet_path
             end
         end
         
